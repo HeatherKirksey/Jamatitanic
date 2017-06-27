@@ -1,0 +1,79 @@
+---
+title: "Titanic_initial"
+author: "JBaker"
+date: "June 9, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# get the training data here: https://www.kaggle.com/c/titanic/data/
+train_dataset <- read.csv("./train.csv", stringsAsFactors = FALSE)
+```
+
+```{r Factors}
+
+# Create factors
+train_dataset$Pclass <- factor(train_dataset$Pclass, levels=1:3, labels=c("First", "Second", "Third"))
+train_dataset$Gender <- ifelse(train_dataset$Sex == "male", 0, 1)
+train_dataset$Embarked <- factor(train_dataset$Embarked)
+train_dataset$Embarked <- factor(train_dataset$Embarked, labels=c("Unknown", "C", "Q", "S"))
+train_dataset$Survived <- factor(train_dataset$Survived, levels = c(0,1), labels = c("deceased", "survived"))
+```
+
+## Looking at the data
+
+```{r Plotit}
+library(lattice)
+splom(train_dataset,  data = train_dataset)
+```
+
+
+
+``` {r KeyAssumptions}
+# Impute some ages
+
+train_dataset$Wothers <- train_dataset$SibSp + train_dataset$Parch
+train_dataset$Age <- ifelse(is.na(train_dataset$Age), ifelse(train_dataset$Wothers == 0, 
+                        99,  # If alone and no age, assume OLD
+                        round(mean(train_dataset$Age, na.rm = TRUE))), train_dataset$Age)
+
+#
+```
+
+## Train on the data
+### First give Linear Discriminant Analysis a shot
+
+```{r lda, cache=TRUE}
+library(caret)
+library(randomForest)
+set.seed(123)
+inTrain <- createDataPartition(y=train_dataset$Survived, p=.7, list=FALSE)
+training <- train_dataset[inTrain,]
+testing <- train_dataset[-inTrain,]
+mfit_lda <- train(Survived ~ Age + Pclass + Gender + Wothers + Fare,  method = "lda", data = training)
+outcome_lda <- predict(mfit_lda, newdata = testing)
+lda_accuracy <- sum(outcome_lda == testing$Survived) / nrow(testing)
+```
+
+Accuracy of: `r lda_accuracy` That's OK, but not great. Let's try another method?
+
+### QDA 
+```{r QDA, cache=TRUE }
+mfit_qda <- train(Survived ~ Age + Pclass + Sex + Wothers + Fare , method = "qda", data = training)
+outcome_qda <- predict(mfit_qda, newdata = testing)
+qda_accuracy <- sum(outcome_qda == testing$Survived) / nrow(testing)
+
+```
+
+Accuracy of`r qda_accuracy`. Not a real difference.
+
+### Random Forest no boosting
+
+```{r RF, cache=TRUE}
+mfit_RF <- train(Survived ~ Age + Pclass + Sex + Wothers + Fare + Embarked,  method = "rf", data = training)
+outcome_RF <- predict(mfit_RF, newdata = testing)
+RF_accuracy <- sum(outcome_RF == testing$Survived) / nrow(testing)
+```
+Accuracy of: `r RF_accuracy`. Not much better

@@ -1,0 +1,20 @@
+,PassengerId,Survived,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked
+31,32,1,1,"Spencer, Mrs. William Augustus (Marie Eugenie)",female,,1,0,PC 17569,146.5208,B78,C
+55,56,1,1,"Woolner, Mr. Hugh",male,,0,0,19947,35.5,C52,S
+128,129,1,3,"Peter, Miss. Anna",female,,1,1,2668,22.3583,F E69,C
+166,167,1,1,"Chibnall, Mrs. (Edith Martha Bowerman)",female,,0,1,113505,55.0,E33,S
+185,186,0,1,"Rood, Mr. Hugh Roscoe",male,,0,0,113767,50.0,A32,S
+284,285,0,1,"Smith, Mr. Richard William",male,,0,0,113056,26.0,A19,S
+298,299,1,1,"Saalfeld, Mr. Adolphe",male,,0,0,19988,30.5,C106,S
+303,304,1,2,"Keane, Miss. Nora A",female,,0,0,226593,12.35,E101,Q
+351,352,0,1,"Williams-Lambert, Mr. Fletcher Fellows",male,,0,0,113510,35.0,C128,S
+457,458,1,1,"Kenyon, Mrs. Frederick R (Marion)",female,,1,0,17464,51.8625,D21,S
+475,476,0,1,"Clifford, Mr. George Quincy",male,,0,0,110465,52.0,A14,S
+527,528,0,1,"Farthing, Mr. John",male,,0,0,PC 17483,221.7792,C95,S
+669,670,1,1,"Taylor, Mrs. Elmer Zebley (Juliet Cummins Wright)",female,,1,0,19996,52.0,C126,S
+711,712,0,1,"Klaber, Mr. Herman",male,,0,0,113028,26.55,C124,S
+740,741,1,1,"Hawksford, Mr. Walter James",male,,0,0,16988,30.0,D45,S
+776,777,0,3,"Tobin, Mr. Roger",male,,0,0,383121,7.75,F38,Q
+815,816,0,1,"Fry, Mr. Richard",male,,0,0,112058,0.0,B102,S
+839,840,1,1,"Marechal, Mr. Pierre",male,,0,0,11774,29.7,C47,C
+849,850,1,1,"Goldenberg, Mrs. Samuel L (Edwiga Grabowska)",female,,1,0,17453,89.1042,C92,C
