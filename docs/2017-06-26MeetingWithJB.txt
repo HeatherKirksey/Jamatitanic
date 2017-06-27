@@ -1,0 +1,69 @@
+
+Where & When: Starbucks at Harmony Marketplace, 6/26/2017 2 - 4:15pm
+Scribe: Michael Sz.
+Proposed Next meeting: google hangout vid conf: Thu July 6?
+                       f2f/coffee:  Fri July 14?
+
+Items discussed:
+
+1) Imputing age data - discussed Jim's use of MICE, good discussed around
+   keeping strictly as a regression problem, and how to evaluate accuracy
+2) Jim discussed his name parsing exploration work.
+3) Cabin data - Jim proposed and Michael agreed that using "deck" as an
+   engineered parameter is a good idea
+4) Michael mentioned that we should explore how well the existing 117 records
+   which have a value for Cabin separate the data against the response variable
+   (Survived).
+5) Discussed some kaggle logistics such as he public vs. private test data
+   split
+6) Jim suggested adding a weekly google video call meeting
+7) Misc items: discussed running computationally intensive code outside of
+   notebook env's, log(fare) metric, investigate using neural nets from caret
+   package
+
+Details:
+
+1) Agreed that age imputation should be kept **INDEPENDENT** of survival,
+   Jim discussed his work around assiging age in such a way as is consistent
+   with the distribution of known ages, we agreed that accuracy should be
+   assessed by standard regression metrics such as RSS (residual sum of
+   squares) or MSE (mean square error)
+   
+2) Michael will pull down Jim's name parsing code and incorporate into his
+   modeling work.
+
+3) Jim discussed his approach to determining "deck" from various combinations
+   of existing data: this will require developing a good understanding of the
+   ships layout and translating that understanding into a computable model.
+   Jim hypothesized how the Embarked variable may be useful in modeling "deck"
+   as well.
+   
+4) I don't recall if we discussed who would do this, so Michael will ping
+   Jim to figure out who'll dig into this.
+   
+5) Discussed that some teams were posting 100% accuracy on their public test
+   sets.  Our goal is to get over 90% while developing and following a sound
+   and analysis process
+
+6) Michael liked idea because it will help with maintaining momentum (see
+   proposed time above for 1st video conf)
+   
+7) We agreed that running computationally expensive code should be done outside
+   the notebook environment
+   
+Post-meeting Thoughts:
+
+1) TBD
+
+Action items:
+
+Michael - will create github repo for remainder of project work
+        - will pull down Jim's title parsing code and incorporate into
+		  baseline model
+		- start working on model evaluation framework
+		- start working on ways to ensemble different models
+Jim - cont. to work on age imputation algorithm: assess accuracy using RSS
+      and/or MSE
+	- cont. modeling engineered deck parameters from various combinations of
+	  of existing data such as cabin, pclass fare, embark etc.
+    - get back to Michael re: availability for next meeting

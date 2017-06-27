@@ -1,0 +1,72 @@
+
+Where & When: Starbucks at Harmony Marketplace, 6/20/2017 8:30 - 10am
+Scribe: Michael Sz.
+Next meeting: TBD
+
+Items discussed:
+
+1) Imputing age data - We want to do this 'intelligently', so we need to
+   discover relationships that will allow us to do this accurately.
+2) Imputing cabin data - Same idea. Doing this intelligently will require
+   a good understanding of the ships layout and translating that understanding
+   into a good imputation model.
+3) training and cross-validation (cv)
+4) team size and future kaggle competitions
+5) "hackathon" proposals and integration with ML class
+
+Details:
+
+1) Jim will cont. work on developing an algorithm to impute age data. We
+   discussed how we would assess the accuracy of the age imputation. See item
+   1) in "Post-meeting Thoughts" section for proposal on how to do this.
+
+2) We decided to work on this later because it looks like a harder nut to
+   crack.  We acknowledge however, that a large majority of the training
+   records were missing cabin data.  Because of this, tt may make sense to
+   reprioritize this above the age imputation.  See item 2) in "Post-meeting
+   Thoughts" section for why this may be a good idea.
+   
+3) We discussed Random Forests (RF) and boosting ensemble methods. Because
+   these strategies attempt to decorrelate errors by building numerous models
+   with various predictors removed, we might want to consider manually
+   building models that don't use Age or Cabin as predictors and then train
+   these models with the records that have these pieces of data missing.
+   Michael proposed that this seems like a 'natural' way to do RF and/or
+   boosting.
+   
+Post-meeting Thoughts:
+
+1) It probably makes sense to treat the age imputation sub-problem as a
+   special case of regression.  We have 891 - 177 = 714 records which
+   contain age which can be used to test an imputation model against.
+   Minimizing the residual sum of squares (RSS) should work just fine.
+
+2) Because 687 of the 891 records have missing cabin data, figuring out
+   how to impute this data may actually give us a better payoff than
+   figuring out how to impute age (of which only 177 records are missing).
+
+Items we probably should discuss next meeting:
+
+- What does EDA say wrt to importance of Age vs. Cabin predictors?
+  How important are these predictors relative to each other?
+- Should we reprioritize Cabin over Age data imputation?
+- How are we going to handle "Ticket" data? 
+- How are we going to handle "Fare" data?
+- How are we going to handle "Name" data?  Is there any reason we should care?
+  Parse "Mrs., Mr., Miss"?...
+- Design / propose specific ensembling and cv strategies
+- Feature engineering: break Cabin into multiple fields?
+                       assess marital status from name?
+					   how to model age imputation?
+                       how to model cabin imputation?
+Action items:
+
+Michael - will cont. working on EDA and how to do ensembling and cv.
+        - stretch goal: answer "How important is Cabin vs. Age in predicting
+          survival?"
+Michael - provide example of how cross-entropy calculation for Jim.
+          Done - See: http://rpubs.com/mszczepaniak/classificationgoodness
+		  (Note: Jim doesn't need this info yet because he won't need it for
+		   his age modeling as orginally discussed during meeting.)
+Jim - cont. to work on age imputation algorithm
+    - get back to Michael re: availability for next meeting
