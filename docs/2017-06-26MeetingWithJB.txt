@@ -6,20 +6,20 @@ Proposed Next meeting: google hangout vid conf: Thu July 6?
 
 Items discussed:
 
-1) Imputing age data - discussed Jim's use of MICE, good discussed around
-   keeping strictly as a regression problem, and how to evaluate accuracy
+1) Imputing age data - discussed Jim's use of MICE, good discussion around
+   keeping this strictly as a regression problem, and how to evaluate accuracy
 2) Jim discussed his name parsing exploration work.
 3) Cabin data - Jim proposed and Michael agreed that using "deck" as an
-   engineered parameter is a good idea
+   engineered parameter is a good idea.
 4) Michael mentioned that we should explore how well the existing 117 records
    which have a value for Cabin separate the data against the response variable
    (Survived).
-5) Discussed some kaggle logistics such as he public vs. private test data
+5) Discussed some kaggle logistics such as the public vs. private test data
    split
 6) Jim suggested adding a weekly google video call meeting
 7) Misc items: discussed running computationally intensive code outside of
-   notebook env's, log(fare) metric, investigate using neural nets from caret
-   package
+   notebook env's, incoprorating log(fare) into model, investigate using
+   neural nets from caret package
 
 Details:
 
@@ -29,7 +29,7 @@ Details:
    assessed by standard regression metrics such as RSS (residual sum of
    squares) or MSE (mean square error)
    
-2) Michael will pull down Jim's name parsing code and incorporate into his
+2) Discussed Jim's name parsing code and how to incorporate it into our
    modeling work.
 
 3) Jim discussed his approach to determining "deck" from various combinations
@@ -43,13 +43,13 @@ Details:
    
 5) Discussed that some teams were posting 100% accuracy on their public test
    sets.  Our goal is to get over 90% while developing and following a sound
-   and analysis process
+   analysis process.
 
-6) Michael liked idea because it will help with maintaining momentum (see
-   proposed time above for 1st video conf)
+6) Michael liked idea of doing regular video conferencing because it will help
+   with maintaining momentum (see proposed time above for 1st video conf).
    
 7) We agreed that running computationally expensive code should be done outside
-   the notebook environment
+   the notebook environment.
    
 Post-meeting Thoughts:
 
